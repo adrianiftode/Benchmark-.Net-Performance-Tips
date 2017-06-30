@@ -27,7 +27,6 @@ namespace Benchmark
             catch { }
         }
 
-
         private void Catch_AccessStackTrace_Rethrow()
         {
             try
@@ -52,10 +51,10 @@ namespace Benchmark
                 throw;
             }
         }
+
         private void Throw()
         {
             throw null;
         }
-
     }
 }

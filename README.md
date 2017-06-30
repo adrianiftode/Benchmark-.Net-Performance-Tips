@@ -1,8 +1,9 @@
 # Benchmark .Net Performance Tips
 
-Test a series of reccomendations about .Net performance found here and there.
+Test a series of recommendations about using .Net on matters related to performance.
 
 ## DelegateConstruction
+
 
 
 ``` ini
@@ -61,6 +62,41 @@ Frequency=3215228 Hz, Resolution=311.0199 ns, Timer=TSC
  |------------------------ |---------:|----------:|----------:|-------:|----------:|
  |    WithStackTraceAccess | 50.57 us | 0.3511 us | 0.3284 us | 0.6104 |    1977 B |
  | WithoutStackTraceAccess | 27.93 us | 0.0823 us | 0.0643 us | 0.0916 |     300 B |
+
+## Dynamic
+
+ ``` ini
+
+BenchmarkDotNet=v0.10.6, OS=Windows 10 Redstone 1 (10.0.14393)
+Processor=Intel Core i5-4590 CPU 3.30GHz (Haswell), ProcessorCount=4
+Frequency=3215228 Hz, Resolution=311.0199 ns, Timer=TSC
+  [Host]     : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
+  DefaultJob : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
+
+
+```
+ |                Method |       Mean |     Error |    StdDev |  Gen 0 | Allocated |
+ |---------------------- |-----------:|----------:|----------:|-------:|----------:|
+ |          UsingDynamic | 17.9361 ns | 0.0999 ns | 0.0934 ns | 0.0114 |      36 B |
+ | CompileTimeAssignment |  0.0182 ns | 0.0062 ns | 0.0058 ns |      - |       0 B |
+
+
+## ParseGuid
+
+``` ini
+
+BenchmarkDotNet=v0.10.6, OS=Windows 10 Redstone 1 (10.0.14393)
+Processor=Intel Core i5-4590 CPU 3.30GHz (Haswell), ProcessorCount=4
+Frequency=3215228 Hz, Resolution=311.0199 ns, Timer=TSC
+  [Host]     : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
+  DefaultJob : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
+
+
+```
+ |           Method |      Mean |     Error |    StdDev |  Gen 0 | Allocated |
+ |----------------- |----------:|----------:|----------:|-------:|----------:|
+ | FromGuidToString |  81.96 ns | 0.3147 ns | 0.2790 ns | 0.0279 |      88 B |
+ | FromStringToGuid | 498.20 ns | 2.3758 ns | 2.2223 ns |      - |       0 B |
 
 
  Benchmarked with [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)

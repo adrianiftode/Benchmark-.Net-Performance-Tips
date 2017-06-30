@@ -141,6 +141,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dynamic.cs" />
+    <Compile Include="ParseGuid.cs" />
     <Compile Include="StackTrace.cs" />
     <Compile Include="ThrowExceptions.cs" />
     <Compile Include="DelegateConstruction.cs" />
