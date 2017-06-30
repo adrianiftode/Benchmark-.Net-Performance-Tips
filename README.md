@@ -98,5 +98,26 @@ Frequency=3215228 Hz, Resolution=311.0199 ns, Timer=TSC
  | FromGuidToString |  81.96 ns | 0.3147 ns | 0.2790 ns | 0.0279 |      88 B |
  | FromStringToGuid | 498.20 ns | 2.3758 ns | 2.2223 ns |      - |       0 B |
 
+## StringsComparisons
+
+``` ini
+
+BenchmarkDotNet=v0.10.6, OS=Windows 10 Redstone 1 (10.0.14393)
+Processor=Intel Core i5-4590 CPU 3.30GHz (Haswell), ProcessorCount=4
+Frequency=3215228 Hz, Resolution=311.0199 ns, Timer=TSC
+  [Host]     : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
+  DefaultJob : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
+
+
+```
+ |                                Method |       Mean |     Error |    StdDev |  Gen 0 | Allocated |
+ |-------------------------------------- |-----------:|----------:|----------:|-------:|----------:|
+ |               StringComparisonOrdinal |   2.649 ns | 0.0220 ns | 0.0206 ns |      - |       0 B |
+ |     StringComparisonOrdinalIgnoreCase |  10.447 ns | 0.0361 ns | 0.0320 ns |      - |       0 B |
+ | StringComparisonOrdinalCurrentCulture |  87.079 ns | 0.3474 ns | 0.3249 ns |      - |       0 B |
+ |               StringComparisonToLower | 212.555 ns | 0.8068 ns | 0.7546 ns | 0.0226 |      72 B |
+ |             StringComparisonToToUpper | 213.768 ns | 0.6787 ns | 0.6016 ns | 0.0226 |      72 B |
+ |                        EqualsOperator |   4.549 ns | 0.0226 ns | 0.0212 ns |      - |       0 B |
+
 
  Benchmarked with [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)
