@@ -1,5 +1,5 @@
 ﻿using BenchmarkDotNet.Running;
-
+using System.Reflection;
 
 namespace Benchmark
 {
@@ -7,7 +7,7 @@ namespace Benchmark
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<DelegateConstruction>();
+            BenchmarkSwitcher.FromAssembly(typeof(Program).GetTypeInfo().Assembly).Run(args);
         }
     }
 }
