@@ -148,16 +148,6 @@ Frequency=3215228 Hz, Resolution=311.0199 ns, Timer=TSC
   [Host]     : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
   DefaultJob : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
 
-
-``` ini
-
-BenchmarkDotNet=v0.10.6, OS=Windows 10 Redstone 1 (10.0.14393)
-Processor=Intel Core i5-4590 CPU 3.30GHz (Haswell), ProcessorCount=4
-Frequency=3215228 Hz, Resolution=311.0199 ns, Timer=TSC
-  [Host]     : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
-  DefaultJob : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
-
-
 ```
  |        Method |      Mean |     Error |    StdDev |  Gen 0 | Allocated |
  |-------------- |----------:|----------:|----------:|-------:|----------:|
