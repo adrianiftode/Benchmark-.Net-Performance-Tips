@@ -120,4 +120,51 @@ Frequency=3215228 Hz, Resolution=311.0199 ns, Timer=TSC
  |                        EqualsOperator |   4.549 ns | 0.0226 ns | 0.0212 ns |      - |       0 B |
 
 
+## StatelessServicesInstantiation
+
+  ``` ini
+
+BenchmarkDotNet=v0.10.6, OS=Windows 10 Redstone 1 (10.0.14393)
+Processor=Intel Core i5-4590 CPU 3.30GHz (Haswell), ProcessorCount=4
+Frequency=3215222 Hz, Resolution=311.0205 ns, Timer=TSC
+  [Host]     : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
+  DefaultJob : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
+
+
+```
+ |                   Method |      Mean |     Error |    StdDev |  Gen 0 | Allocated |
+ |------------------------- |----------:|----------:|----------:|-------:|----------:|
+ | InstantiateInConstructor | 17.205 ns | 0.3560 ns | 0.3496 ns | 0.0229 |      72 B |
+ |      InstantiateInMethod |  6.942 ns | 0.1664 ns | 0.1849 ns | 0.0114 |      36 B |
+
+
+## StringsOperations
+
+ ``` ini
+
+BenchmarkDotNet=v0.10.6, OS=Windows 10 Redstone 1 (10.0.14393)
+Processor=Intel Core i5-4590 CPU 3.30GHz (Haswell), ProcessorCount=4
+Frequency=3215228 Hz, Resolution=311.0199 ns, Timer=TSC
+  [Host]     : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
+  DefaultJob : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
+
+
+``` ini
+
+BenchmarkDotNet=v0.10.6, OS=Windows 10 Redstone 1 (10.0.14393)
+Processor=Intel Core i5-4590 CPU 3.30GHz (Haswell), ProcessorCount=4
+Frequency=3215228 Hz, Resolution=311.0199 ns, Timer=TSC
+  [Host]     : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
+  DefaultJob : Clr 4.0.30319.42000, 32bit LegacyJIT-v4.7.2053.0
+
+
+```
+ |        Method |      Mean |     Error |    StdDev |  Gen 0 | Allocated |
+ |-------------- |----------:|----------:|----------:|-------:|----------:|
+ | Concatenation |  40.72 ns | 0.6044 ns | 0.5653 ns | 0.0686 |     216 B |
+ |        Format | 121.71 ns | 1.5041 ns | 1.4070 ns | 0.0684 |     216 B |
+ | Interpolation | 119.38 ns | 0.5839 ns | 0.5176 ns | 0.0684 |     216 B |
+ | StringBuilder | 160.62 ns | 3.1170 ns | 3.5895 ns | 0.1702 |     536 B |
+
+
  Benchmarked with [BenchmarkDotNet](https://github.com/dotnet/BenchmarkDotNet)
