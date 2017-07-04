@@ -141,6 +141,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StringsOperations.cs" />
     <Compile Include="Dynamic.cs" />
     <Compile Include="StringsComparison.cs" />
     <Compile Include="ParseGuid.cs" />
